@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FiguresUI.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            HorizontalOptions="Fill">
+
+            <Label
+                Text="Welcome to &#10;.NET Multi-platform App UI"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+
+
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Label x:Name="LayoutSwitchText" FontSize="16" Text="Поменять фигуру"/>
+                <Switch x:Name="LayoutSwitch" IsToggled="True" Toggled="LayoutSwitch_Toggled" />
+            </StackLayout>
+
+            
+            <StackLayout x:Name="StackRectangle" Padding="8" IsVisible="False" HorizontalOptions="CenterAndExpand">
+                <AbsoluteLayout>
+                    <Rectangle x:Name="RectangleFigure"
+                           BackgroundColor="Red"
+                           WidthRequest="150"
+                           HeightRequest="50"
+                           HorizontalOptions="Start"
+                           VerticalOptions="End">
+                    </Rectangle>
+                    <Label x:Name="RectangleText"
+                           FontSize="16"
+                           Text="Some text"
+                           VerticalOptions="StartAndExpand"
+                           VerticalTextAlignment="Start"
+                           AbsoluteLayout.LayoutBounds="40, 15, AutoSize, AutoSize"/>
+                </AbsoluteLayout>
+
+                <Entry x:Name="RectangleEntry"
+                       Placeholder="Текст на фигуре"
+                       TextChanged="RectangleEntry_TextChanged" />
+                
+                <!-- Slider and identifying Label for Scale -->
+                <Label 
+                       Text="Высота прямоугольника"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Slider x:Name="RectangleSliderHeight"
+                        BindingContext="{x:Reference RectangleFigure}"
+                        Grid.Row="1" Grid.Column="0"
+                        Maximum="150"
+                        Minimum="10"
+                        Value="{Binding HeightRequest, Mode=TwoWay}" />
+                <!-- Slider and identifying Label for Scale -->
+                <Label 
+                       Text="Ширина прямоугольника"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Slider x:Name="RectangleSliderWidth"
+                        BindingContext="{x:Reference RectangleFigure}"
+                        Grid.Row="1" Grid.Column="0"
+                        Maximum="300"
+                        Minimum="10"
+                        Value="{Binding WidthRequest, Mode=TwoWay}" />
+                <!-- Slider and identifying Label for Scale -->
+                <Label 
+                       Text="Поворот"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Slider x:Name="RectangleSliderRotation"
+                        BindingContext="{x:Reference RectangleFigure}"
+                        Grid.Row="1" Grid.Column="0"
+                        Maximum="50"
+                        Minimum="-50"
+                        Value="{Binding Rotation, Mode=TwoWay}" />
+
+
+                <Label 
+                       Text="Цвет"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Switch x:Name="SwitcherRectangleColor" IsToggled="False" Toggled="SwitcherRectangleColor_Toggled" />
+                <Label 
+                       Text="Цвет текста"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Switch x:Name="SwitcherRectangleTextColor" IsToggled="False" Toggled="SwitcherRectangleTextColor_Toggled" />
+
+            </StackLayout>
+
+            <StackLayout x:Name="StackEllipse" Padding="8" IsVisible="True" HorizontalOptions="CenterAndExpand">
+                <AbsoluteLayout>
+                    <Ellipse x:Name="EllipseFigure"
+                                BackgroundColor="Red"
+                                Stroke="Black"
+                                StrokeThickness="4"
+                                WidthRequest="150"
+                                HeightRequest="150"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+                    <Label x:Name="EllipseText"
+                               FontSize="16"
+                               Text="Some text" 
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="35, 65, AutoSize, AutoSize"/>
+                </AbsoluteLayout>
+
+                <Entry x:Name="EllipseEntry"
+                       Placeholder="Текст на фигуре"
+                       TextChanged="EllipseEntry_TextChanged" />
+                
+                <!-- Slider and identifying Label for Scale -->
+                <Label 
+                       Text="Сжатие по вертикали"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Slider x:Name="EllipseSliderHeight"
+                        BindingContext="{x:Reference EllipseFigure}"
+                        Grid.Row="1" Grid.Column="0"
+                        Maximum="150"
+                        Minimum="10"
+                        Value="{Binding HeightRequest, Mode=TwoWay}" /> 
+                <!-- Slider and identifying Label for Scale -->
+                <Label 
+                       Text="Сжатие по горизонтали"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Slider x:Name="EllipseSliderWidth"
+                        BindingContext="{x:Reference EllipseFigure}"
+                        Grid.Row="1" Grid.Column="0"
+                        Maximum="300"
+                        Minimum="10"
+                        Value="{Binding WidthRequest, Mode=TwoWay}" />
+
+
+                <Label 
+                       Text="Цвет"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Switch x:Name="SwitcherEllipseColor" IsToggled="False" Toggled="SwitcherEllipseColor_Toggled" />
+                <Label 
+                       Text="Цвет текста"
+                       Grid.Row="1" Grid.Column="1"
+                       VerticalTextAlignment="Center" />
+                <Switch x:Name="SwitcherEllipseTextColor" IsToggled="False" Toggled="SwitcherEllipseTextColor_Toggled" />
+            </StackLayout>
+            
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
